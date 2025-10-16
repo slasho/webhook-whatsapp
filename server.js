@@ -4,7 +4,7 @@
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */
-import 'dotenv/config';
+import "dotenv/config";
 import express from "express";
 import axios from "axios";
 
@@ -21,6 +21,8 @@ app.post("/webhook", async (req, res) => {
   const message = req.body.entry?.[0]?.changes[0]?.value?.messages?.[0];
   const business_phone_number_id =
     req.body.entry?.[0].changes?.[0].value?.metadata?.phone_number_id;
+
+  console.log("business_phone_number_id:", business_phone_number_id);
   if (message) {
     if (
       message.type === "text" &&
